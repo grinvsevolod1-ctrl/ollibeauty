@@ -34,7 +34,7 @@ export const translations = {
     },
     services: {
       title: "Услуги",
-      subtitle: "Профессиональный макияж для любого случая",
+      subtitle: "Совершенство в деталях",
       wedding: {
         title: "Свадебный макияж",
         description: "Создам образ вашей мечты для самого важного дня. Стойкий макияж, который продержится весь день.",
@@ -191,7 +191,7 @@ export const translations = {
     },
     services: {
       title: "Services",
-      subtitle: "Professional makeup for any occasion",
+      subtitle: "Perfection in Detail",
       wedding: {
         title: "Wedding Makeup",
         description:
