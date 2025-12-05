@@ -11,7 +11,7 @@ export const translations = {
       training: "Обучение",
       workshops: "Тренинги",
       menu: "Меню",
-      servicesMenu: "Услуги", // Added servicesMenu translation
+      servicesMenu: "Макияж", // Added servicesMenu translation
     },
     hero: {
       title: "Профессиональный макияж от",
@@ -168,7 +168,7 @@ export const translations = {
       training: "Training",
       workshops: "Workshops",
       menu: "Menu",
-      servicesMenu: "Services", // Added servicesMenu translation
+      servicesMenu: "Makeup", // Added servicesMenu translation
     },
     hero: {
       title: "Professional makeup by",
