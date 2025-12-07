@@ -14,7 +14,6 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <MobileNavMenu />
       <HeroVideo />
       <MarqueeText
         items={[
@@ -30,7 +29,6 @@ export default function Home() {
       <MarqueeText items={["Olli Beauty", "Санкт-Петербург", "Запись онлайн", "Instagram @olli_beauty_"]} />
       <PortfolioSection />
       <TestimonialsSection />
-      <BookingSection />
       <ContactsSection />
       <Footer />
     </main>
