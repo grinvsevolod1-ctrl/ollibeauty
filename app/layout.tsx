@@ -18,7 +18,6 @@ export const metadata: Metadata = {
     description: "Профессиональный визажист в Санкт-Петербурге",
     type: "website",
   },
-    generator: 'v0.app'
 }
 
 export default function RootLayout({
