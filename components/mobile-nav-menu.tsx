@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ChevronDown, ChevronUp, ChevronRight } from "lucide-react"
+import { Menu, X, ChevronRight } from "lucide-react"
 import { useLanguage } from "@/components/language-provider"
 
 export function MobileNavMenu() {
@@ -25,15 +25,16 @@ export function MobileNavMenu() {
   ]
 
   return (
-    <div className="lg:hidden fixed top-16 left-0 right-0 z-40 border-b border-border bg-background/95 backdrop-blur-lg">
+    <div className="lg:hidden fixed top-0 left-0 right-0 z-40 border-b border-border bg-background/95 backdrop-blur-lg">
       {/* Toggle button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-4 py-3 flex items-center justify-between text-sm font-medium hover:bg-accent/50 transition-colors"
-      >
-        <span>{t.nav.menu || "Меню"}</span>
-        {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-      </button>
+      <div className="flex justify-end px-4 py-3">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-2 rounded-md hover:bg-accent transition-colors"
+        >
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
 
       {/* Collapsible navigation */}
       {isOpen && (
@@ -55,7 +56,9 @@ export function MobileNavMenu() {
               className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-colors"
             >
               <span>{t.nav.servicesMenu || "Услуги"}</span>
-              <ChevronRight className={`h-4 w-4 transition-transform ${isServicesOpen ? "rotate-90" : ""}`} />
+              <ChevronRight
+                className={`h-4 w-4 transition-transform ${isServicesOpen ? "rotate-90" : ""}`}
+              />
             </button>
 
             {isServicesOpen && (
