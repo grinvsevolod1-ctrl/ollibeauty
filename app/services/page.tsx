@@ -40,7 +40,6 @@ export default function ServicesPage() {
 
 
   const services = [
-    { id: "wedding", ...t.services.wedding, image: "/elegant-wedding-makeup-bride.jpg" },
     { id: "evening", ...t.services.evening, image: "/glamorous-evening-makeup.jpg" },
     { id: "photoshoot", ...t.services.photoshoot, image: "/professional-photoshoot-makeup.jpg" },
     { id: "lesson", ...t.services.lesson, image: "/makeup-lesson-teaching.jpg" },
