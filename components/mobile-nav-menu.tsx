@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Menu, X } from "lucide-react"
+import Link from "next/link"
+import { Menu, X, ChevronRight } from "lucide-react"
 
 export function MobileNavMenu() {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,15 +22,26 @@ export function MobileNavMenu() {
 
   return (
     <div className="lg:hidden fixed top-0 left-0 right-0 z-50 border-b bg-white shadow-md">
-      <div className="flex justify-end px-4 py-3">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="p-2 rounded-md hover:bg-gray-200 transition-colors"
-        >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+      {/* Верхняя панель */}
+      <div className="flex items-center justify-between px-4 py-3">
+        {/* Логотип или заглушка слева */}
+        <div className="text-lg font-bold">Olli Beauty</div>
+
+        {/* Блок справа: переключатель темы + гамбургер */}
+        <div className="flex items-center gap-2">
+          {/* Здесь можно вставить ThemeToggle */}
+          {/* <ThemeToggle /> */}
+
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 rounded-md hover:bg-gray-200 transition-colors"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
+      {/* Навигация */}
       {isOpen && (
         <nav className="px-4 pb-4 space-y-1">
           {navItems.map((item) => (
