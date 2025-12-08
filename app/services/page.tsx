@@ -10,9 +10,6 @@ import Link from "next/link"
 import { Clock, Sparkles } from "lucide-react"
 
 
-import { Header } from "@/components/header"
-
-
 import { Footer } from "@/components/footer"
 
 
@@ -53,7 +50,6 @@ export default function ServicesPage() {
 
   return (
     <main className="min-h-screen">
-      <Header /> 
 
 
       <section className="pt-32 pb-20 px-4">

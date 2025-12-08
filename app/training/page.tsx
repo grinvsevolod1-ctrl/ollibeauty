@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Link from "next/link"
 import { ArrowLeft, Clock, DollarSign, CheckCircle } from "lucide-react"
-import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -37,8 +36,6 @@ export default function TrainingPage() {
 
   return (
     <main className="min-h-screen">
-      <Header />
-
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <Link href="/" className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8">
