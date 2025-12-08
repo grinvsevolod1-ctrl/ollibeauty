@@ -1,9 +1,3 @@
-
-
-
-
-
-
 "use client"
 
 import { Sparkles } from "lucide-react"
@@ -15,21 +9,18 @@ import { ScrollableCards } from "./ScrollableCards"
 export function ServicesSection() {
   const { t } = useLanguage()
 
-  // Первая линия — услуги → /services
   const services = [
     { ...t.services.wedding, image: "/elegant-wedding-makeup-bride.jpg", href: "/services" },
     { ...t.services.evening, image: "/glamorous-evening-makeup.jpg", href: "/services" },
     { ...t.services.photoshoot, image: "/professional-photoshoot-makeup.jpg", href: "/services" },
   ]
 
-  // Вторая линия — курсы → /workshops
   const courses = [
     { id: "individual", ...t.training.individual, href: "/workshops" },
     { id: "online", ...t.training.online, href: "/workshops" },
     { id: "group", ...t.training.group, href: "/workshops" },
   ]
 
-  // Третья линия — воркшопы → /training
   const workshops = [
     { id: "bridal", ...t.workshops.bridal, href: "/training" },
     { id: "photo", ...t.workshops.photo, href: "/training" },
@@ -43,8 +34,14 @@ export function ServicesSection() {
           <p className="text-lg md:text-2xl text-muted-foreground px-4">{t.services.subtitle}</p>
         </div>
 
+        {/* Первая линия — услуги */}
         <ScrollableCards items={services} />
+
+        {/* Вторая линия — курсы */}
         <ScrollableCards items={courses} />
+
+        {/* Третья линия — воркшопы */}
+        <ScrollableCards items={workshops} />
 
         <div className="text-center mt-12">
           <Link href="#booking">
