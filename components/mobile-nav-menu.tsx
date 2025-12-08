@@ -34,7 +34,6 @@ export function MobileNavMenu() {
 
           {/* Гамбургер */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-md hover:bg-gray-200 transition-colors relative z-50"
             aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
           >
@@ -47,10 +46,8 @@ export function MobileNavMenu() {
       {isOpen && (
         <nav className="px-4 pb-4 space-y-1">
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-colors"
+            <Link    
+             className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {item.label}
