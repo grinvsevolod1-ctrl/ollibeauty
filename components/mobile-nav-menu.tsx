@@ -22,19 +22,16 @@ export function MobileNavMenu() {
 
   return (
     <div className="lg:hidden fixed top-0 left-0 right-0 z-50 border-b bg-white shadow-md">
-      {/* Верхняя панель */}
+  
       <div className="flex items-center justify-between px-4 py-3">
-        {/* Логотип */}
+
         <div className="text-lg font-bold text-gray-900">Olli Beauty</div>
 
-        {/* Блок справа */}
         <div className="flex items-center space-x-4">
-          {/* ThemeToggle (если используешь) */}
-          {/* <ThemeToggle /> */}
 
-          {/* Гамбургер */}
           <button
-            className="p-2 rounded-md hover:bg-gray-200 transition-colors relative z-50"
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 rounded-md hover:bg-gray-200 transition-colors"
             aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -42,12 +39,13 @@ export function MobileNavMenu() {
         </div>
       </div>
 
-      {/* Выпадающее меню */}
       {isOpen && (
         <nav className="px-4 pb-4 space-y-1">
           {navItems.map((item) => (
-            <Link    
-             className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-colors"
+            <Link
+              key={item.href}
+              href={item.href}
+              className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {item.label}
