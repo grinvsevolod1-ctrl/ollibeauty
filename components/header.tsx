@@ -6,7 +6,7 @@ import { Moon, Sun, Globe, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "@/components/theme-provider"
 import { useLanguage } from "@/components/language-provider"
-import { MobileContactMenu } from "@/components/mobile-contact-menu"
+import { MobileNavMenu } from "@/components/mobile-nav-menu"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -90,7 +90,7 @@ export function Header() {
           {/* Actions */}
           <div className="flex items-center justify-between w-full lg:w-auto gap-2 md:gap-4">
             {/* Hamburger always visible */}
-            <MobileContactMenu />
+            <MobileNavMenu />
 
             <div className="flex items-center gap-2 md:gap-4">
               {/* Language Toggle */}
