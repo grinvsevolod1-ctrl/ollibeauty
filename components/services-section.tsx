@@ -1,3 +1,9 @@
+
+
+
+
+
+
 "use client"
 
 import { Sparkles } from "lucide-react"
@@ -9,22 +15,25 @@ import { ScrollableCards } from "./ScrollableCards"
 export function ServicesSection() {
   const { t } = useLanguage()
 
+  // Первая линия — услуги → /services
   const services = [
-    { ...t.services.wedding, image: "/elegant-wedding-makeup-bride.jpg" },
-    { ...t.services.evening, image: "/glamorous-evening-makeup.jpg" },
-    { ...t.services.photoshoot, image: "/professional-photoshoot-makeup.jpg" },
+    { ...t.services.wedding, image: "/elegant-wedding-makeup-bride.jpg", href: "/services" },
+    { ...t.services.evening, image: "/glamorous-evening-makeup.jpg", href: "/services" },
+    { ...t.services.photoshoot, image: "/professional-photoshoot-makeup.jpg", href: "/services" },
   ]
 
+  // Вторая линия — курсы → /workshops
   const courses = [
-    { id: "individual", ...t.training.individual },
-    { id: "online", ...t.training.online },
-    { id: "group", ...t.training.group },
+    { id: "individual", ...t.training.individual, href: "/workshops" },
+    { id: "online", ...t.training.online, href: "/workshops" },
+    { id: "group", ...t.training.group, href: "/workshops" },
   ]
 
+  // Третья линия — воркшопы → /training
   const workshops = [
-    { id: "bridal", ...t.workshops.bridal },
-    { id: "evening", ...t.workshops.evening },
-    { id: "photo", ...t.workshops.photo },
+    { id: "bridal", ...t.workshops.bridal, href: "/training" },
+    { id: "evening", ...t.workshops.evening, href: "/training" },
+    { id: "photo", ...t.workshops.photo, href: "/training" },
   ]
 
   return (
@@ -35,18 +44,16 @@ export function ServicesSection() {
           <p className="text-lg md:text-2xl text-muted-foreground px-4">{t.services.subtitle}</p>
         </div>
 
-        {/* Первая линия — услуги */}
         <ScrollableCards items={services} />
-
-        {/* Вторая линия — курсы */}
         <ScrollableCards items={courses} />
-
-        {/* Третья линия — воркшопы */}
         <ScrollableCards items={workshops} />
 
         <div className="text-center mt-12">
           <Link href="#booking">
-            <Button size="lg" className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90 w-full sm:w-auto">
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90 w-full sm:w-auto"
+            >
               <Sparkles className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               {t.hero.cta}
             </Button>
