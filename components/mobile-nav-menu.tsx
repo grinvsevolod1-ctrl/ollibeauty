@@ -24,14 +24,15 @@ export function MobileNavMenu() {
     <div className="lg:hidden fixed top-0 left-0 right-0 z-50 border-b bg-white shadow-md">
       {/* Верхняя панель */}
       <div className="flex items-center justify-between px-4 py-3">
-        {/* Логотип или заглушка слева */}
-        <div className="text-lg font-bold">Olli Beauty</div>
+        {/* Логотип слева */}
+        <div className="text-lg font-bold text-gray-900">Olli Beauty</div>
 
         {/* Блок справа: переключатель темы + гамбургер */}
-        <div className="flex items-center gap-2">
-          {/* Здесь можно вставить ThemeToggle */}
+        <div className="flex items-center gap-3">
+          {/* Если используешь ThemeToggle, вставь сюда */}
           {/* <ThemeToggle /> */}
 
+          {/* Кнопка гамбургера */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 rounded-md hover:bg-gray-200 transition-colors"
@@ -41,7 +42,7 @@ export function MobileNavMenu() {
         </div>
       </div>
 
-      {/* Навигация */}
+      {/* Выпадающее меню */}
       {isOpen && (
         <nav className="px-4 pb-4 space-y-1">
           {navItems.map((item) => (
