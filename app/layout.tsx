@@ -23,17 +23,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru" suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <ThemeProvider defaultTheme="dark">
           <LanguageProvider defaultLanguage="ru">
-           
-
-            <Suspense fallback={null}>{children}</Suspense>
+            <Header />
+            <main className="pt-16 md:pt-20">
+              <Suspense fallback={null}>{children}</Suspense>
+            </main>
           </LanguageProvider>
         </ThemeProvider>
         <Analytics />
