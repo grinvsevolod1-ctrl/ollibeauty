@@ -57,7 +57,6 @@ export function MobileNavMenu() {
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
               className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-700 hover:text-black hover:bg-gray-100 rounded-lg transition-colors"
-              aria-expanded={isServicesOpen}
             >
               <span>Services</span>
               <ChevronRight
