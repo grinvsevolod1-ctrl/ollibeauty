@@ -3,15 +3,14 @@ export const translations = {
     nav: {
       home: "Главная",
       about: "Обо мне",
-      services: "Услуги",
       portfolio: "Портфолио",
       testimonials: "Отзывы",
-      booking: "Запись",
       contacts: "Контакты",
+      servicesMenu: "Услуги",   // Заголовок кнопки
+      services: "Макияж",       // Пункт меню
       training: "Обучение",
       workshops: "Тренинги",
-      menu: "Меню",
-      servicesMenu: "Макияж", // Added servicesMenu translation
+    }
     },
     hero: {
       title: "Профессиональный макияж от",
