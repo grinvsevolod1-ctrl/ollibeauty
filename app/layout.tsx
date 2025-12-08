@@ -7,6 +7,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/components/language-provider"
 import { Suspense } from "react"
+import { MobileNavMenu } from "@/components/mobile-nav-menu"
 
 export const metadata: Metadata = {
   title: "Olli Beauty | Профессиональный макияж в Санкт-Петербурге",
@@ -30,6 +31,9 @@ export default function RootLayout({
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <ThemeProvider defaultTheme="dark">
           <LanguageProvider defaultLanguage="ru">
+            {/* 👉 добавляем мобильное меню */}
+            <MobileNavMenu />
+
             <Suspense fallback={null}>{children}</Suspense>
           </LanguageProvider>
         </ThemeProvider>
