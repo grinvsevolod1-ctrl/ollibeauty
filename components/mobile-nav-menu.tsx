@@ -21,26 +21,21 @@ export function MobileNavMenu() {
   ]
 
   return (
-    <div className="lg:hidden fixed top-0 left-0 right-0 z-50 border-b bg-white shadow-md">
-  
+    <div className="lg:hidden relative z-40 border-b bg-white shadow-md">
       <div className="flex items-center justify-between px-4 py-3">
-
         <div className="text-lg font-bold text-gray-900">Olli Beauty</div>
 
-        <div className="flex items-center space-x-4">
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-md hover:bg-gray-200 transition-colors"
-            aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-2 rounded-md hover:bg-gray-200 transition-colors"
+          aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
+        >
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
 
       {isOpen && (
-        <nav className="px-4 pb-4 space-y-1">
+        <nav className="absolute top-full left-0 right-0 bg-white shadow-md px-4 pb-4 space-y-1">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -52,7 +47,6 @@ export function MobileNavMenu() {
             </Link>
           ))}
 
-          {/* Services */}
           <div className="space-y-1">
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
