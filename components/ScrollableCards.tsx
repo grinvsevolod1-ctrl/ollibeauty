@@ -12,6 +12,7 @@ interface Service {
   duration?: string
   price?: string
   image?: string
+  href?: string   // 👈 добавлено
 }
 
 interface ScrollableCardsProps {
@@ -23,7 +24,6 @@ export function ScrollableCards({ items }: ScrollableCardsProps) {
   const [touchStartX, setTouchStartX] = useState(0)
   const [touchEndX, setTouchEndX] = useState(0)
 
-  // плавная прокрутка
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth, scrollWidth } = scrollRef.current
@@ -35,7 +35,6 @@ export function ScrollableCards({ items }: ScrollableCardsProps) {
     }
   }
 
-  // свайпы
   const handleTouchStart = (e: React.TouchEvent) => setTouchStartX(e.touches[0].clientX)
   const handleTouchMove = (e: React.TouchEvent) => setTouchEndX(e.touches[0].clientX)
   const handleTouchEnd = () => {
@@ -57,21 +56,23 @@ export function ScrollableCards({ items }: ScrollableCardsProps) {
         {items.map((service, index) => (
           <Link
             key={`${service.id || service.title}-${index}`}
-            href="#booking"
+            href={service.href || "#booking"}
             className="flex-shrink-0 w-[280px] sm:w-[300px] md:w-[400px]"
           >
             <Card
               className="transform transition-transform duration-300 hover:scale-105 cursor-pointer overflow-hidden group hover:shadow-xl animate-fade-in-up"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className="relative aspect-[3/2] overflow-hidden">
-                <img
-                  src={service.image || "/placeholder.svg"}
-                  alt={service.title || "Service image"}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
+              {service.image && (
+                <div className="relative aspect-[3/2] overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title || "Service image"}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              )}
               <div className="p-6 space-y-4 text-base md:text-lg">
                 <h3 className="font-bold">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{service.description}</p>
