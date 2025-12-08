@@ -313,6 +313,4 @@ export const translations = {
     },
   },
 } as const
-
-export type Language = keyof typeof translations
 export type TranslationKey = typeof translations.ru
