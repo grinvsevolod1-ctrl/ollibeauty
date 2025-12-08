@@ -25,12 +25,12 @@ export function MobileNavMenu() {
   ]
 
   return (
-    <div className="lg:hidden fixed top-0 left-0 right-0 z-40 border-b border-border bg-background/95 backdrop-blur-lg">
+    <div className="lg:hidden fixed top-0 left-0 right-0 z-50 border-b bg-white shadow-md">
       {/* Toggle button */}
       <div className="flex justify-end px-4 py-3">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 rounded-md hover:bg-accent transition-colors"
+          className="p-2 rounded-md hover:bg-gray-200 transition-colors"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -38,12 +38,12 @@ export function MobileNavMenu() {
 
       {/* Collapsible navigation */}
       {isOpen && (
-        <nav className="px-4 pb-4 space-y-1 animate-in slide-in-from-top-2 duration-200">
+        <nav className="px-4 pb-4 space-y-1">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-colors"
+              className="block px-4 py-3 text-sm font-medium text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-colors"
               onClick={() => setIsOpen(false)}
             >
               {item.label}
@@ -53,7 +53,7 @@ export function MobileNavMenu() {
           <div className="space-y-1">
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
-              className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-colors"
+              className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-colors"
             >
               <span>{t.nav.servicesMenu || "Услуги"}</span>
               <ChevronRight
@@ -62,12 +62,12 @@ export function MobileNavMenu() {
             </button>
 
             {isServicesOpen && (
-              <div className="pl-4 space-y-1 animate-in slide-in-from-left-2 duration-200">
+              <div className="pl-4 space-y-1">
                 {servicesItems.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-colors"
+                    className="block px-4 py-2 text-sm text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-colors"
                     onClick={() => {
                       setIsOpen(false)
                       setIsServicesOpen(false)
