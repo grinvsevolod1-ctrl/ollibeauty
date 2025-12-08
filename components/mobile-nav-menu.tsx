@@ -1,8 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
-import { Menu, X, ChevronRight } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 export function MobileNavMenu() {
   const [isOpen, setIsOpen] = useState(false)
@@ -17,7 +16,6 @@ export function MobileNavMenu() {
 
   const servicesItems = [
     { href: "/services", label: "Services" },
-    { href: "/training", label: "Training" },
     { href: "/workshops", label: "Workshops" },
   ]
 
