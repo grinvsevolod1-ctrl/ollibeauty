@@ -19,6 +19,7 @@ export function MobileNavMenu() {
   const servicesItems = [
     { href: "/services", label: t.nav.services },
     { href: "/workshops", label: t.nav.workshops },
+    { href: "/training", label: t.nav.training },
   ]
 
   return (
