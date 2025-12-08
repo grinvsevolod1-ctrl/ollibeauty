@@ -1,5 +1,4 @@
 import { Header } from "@/components/header"
-import { MobileNavMenu } from "@/components/mobile-nav-menu"
 import { HeroVideo } from "@/components/hero-video"
 import { MarqueeText } from "@/components/marquee-text"
 import { AboutSection } from "@/components/about-section"
@@ -10,7 +9,7 @@ import { BookingSection } from "@/components/booking-section"
 import { ContactsSection } from "@/components/contacts-section"
 import { Footer } from "@/components/footer"
 
-export default function Home() {
+export default function Page() {
   return (
     <main className="min-h-screen">
       <Header />
@@ -29,6 +28,7 @@ export default function Home() {
       <MarqueeText items={["Olli Beauty", "Санкт-Петербург", "Запись онлайн", "Instagram @olli_beauty_"]} />
       <PortfolioSection />
       <TestimonialsSection />
+      <BookingSection />
       <ContactsSection />
       <Footer />
     </main>
