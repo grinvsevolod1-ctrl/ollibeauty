@@ -32,7 +32,6 @@ export function ServicesSection() {
   // Третья линия — воркшопы → /training
   const workshops = [
     { id: "bridal", ...t.workshops.bridal, href: "/training" },
-    { id: "evening", ...t.workshops.evening, href: "/training" },
     { id: "photo", ...t.workshops.photo, href: "/training" },
   ]
 
@@ -46,7 +45,6 @@ export function ServicesSection() {
 
         <ScrollableCards items={services} />
         <ScrollableCards items={courses} />
-        <ScrollableCards items={workshops} />
 
         <div className="text-center mt-12">
           <Link href="#booking">
@@ -54,7 +52,7 @@ export function ServicesSection() {
               size="lg"
               className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90 w-full sm:w-auto"
             >
-              <Sparkles className="mr-2 h-4 w-4 md:h-5 md:w-5" />
+              <Sparkles className="mr-2 h-4 md:h-5 md:w-5" />
               {t.hero.cta}
             </Button>
           </Link>
