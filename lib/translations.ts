@@ -11,7 +11,6 @@ export const translations = {
       training: "Обучение",
       workshops: "Тренинги",
     }
-    },
     hero: {
       title: "Профессиональный макияж от",
       brand: "Olli Beauty",
