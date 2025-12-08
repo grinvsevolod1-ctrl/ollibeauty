@@ -51,11 +51,11 @@ export default function ServicesPage() {
                 className="p-6 hover:shadow-lg transition-all duration-300 animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="relative aspect-[3/2] mb-4 overflow-hidden rounded-lg">
+                <div className="relative mb-4 overflow-hidden rounded-lg">
                   <img
                     src={service.image || "/placeholder.svg"}
                     alt={service.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="max-w-full h-auto hover:scale-105 transition-transform duration-500"
                   />
                 </div>
 
