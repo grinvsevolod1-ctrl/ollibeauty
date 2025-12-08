@@ -1,4 +1,3 @@
-import { Header } from "@/components/header"
 import { HeroVideo } from "@/components/hero-video"
 import { MarqueeText } from "@/components/marquee-text"
 import { AboutSection } from "@/components/about-section"
