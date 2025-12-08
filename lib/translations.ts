@@ -10,7 +10,7 @@ export const translations = {
       services: "Макияж",       // Пункт меню
       training: "Обучение",
       workshops: "Тренинги",
-    }
+    },
     hero: {
       title: "Профессиональный макияж от",
       brand: "Olli Beauty",
