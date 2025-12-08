@@ -38,7 +38,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
       }`}
     >
@@ -88,37 +88,38 @@ export function Header() {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-2 md:gap-4">
-            <div className="lg:hidden">
-              <MobileContactMenu />
-            </div>
+          <div className="flex items-center justify-between w-full lg:w-auto gap-2 md:gap-4">
+            {/* Hamburger always visible */}
+            <MobileContactMenu />
 
-            {/* Language Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setLanguage(language === "ru" ? "en" : "ru")}
-              aria-label="Toggle language"
-            >
-              <Globe className="h-5 w-5" />
-            </Button>
-
-            {/* Theme Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
-
-            {/* CTA Button - Desktop only */}
-            <Link href="#booking" className="hidden md:block">
-              <Button className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90">
-                {t.hero.cta}
+            <div className="flex items-center gap-2 md:gap-4">
+              {/* Language Toggle */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setLanguage(language === "ru" ? "en" : "ru")}
+                aria-label="Toggle language"
+              >
+                <Globe className="h-5 w-5" />
               </Button>
-            </Link>
+
+              {/* Theme Toggle */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </Button>
+
+              {/* CTA Button - Desktop only */}
+              <Link href="#booking" className="hidden md:block">
+                <Button className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90">
+                  {t.hero.cta}
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
