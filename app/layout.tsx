@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider" 
+import { LanguageProvider } from "@/components/language-provider"
 import { Suspense } from "react"
 import { MobileNavMenu } from "@/components/mobile-nav-menu"
 
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Radonly<{
+}: Readonly<{
   children: React.ReactNode
 }>) {
   return (
