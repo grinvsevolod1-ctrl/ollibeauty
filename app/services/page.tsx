@@ -68,7 +68,7 @@ export default function ServicesPage() {
 
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {services.map((service, index) => (
+            {services.map((index) => (
               <Card
                 key={service.id}
                 className="p-6 hover:shadow-lg transition-all duration-300 animate-slide-up"
@@ -79,7 +79,7 @@ export default function ServicesPage() {
                   <img
                     src={service.image || "/placeholder.svg"}
                     alt={service.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full hover:scale-105 transition-transform duration-500"
                   />
                 </div>
 
@@ -115,7 +115,6 @@ export default function ServicesPage() {
 
 
       <BookingModal
-        isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         formType={`Услуга: ${selectedService}`}
         title={selectedService}
