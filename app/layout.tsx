@@ -22,15 +22,23 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-      <div className="absolute inset-0 -z-10">
-  <Silk speed={5} scale={1} color="#7B7481" noiseIntensity={1.5} rotation={0} />
-</div>
+      <body
+        className={`relative min-h-screen font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}
+      >
+        {/* Silk фон */}
+        <div className="absolute inset-0 -z-10 w-full h-full">
+          <Silk
+            speed={5}
+            scale={1}
+            color="#7B7481"
+            noiseIntensity={1.5}
+            rotation={0}
+          />
+        </div>
+
         <ThemeProvider defaultTheme="dark">
           <LanguageProvider defaultLanguage="ru">
             <Header />
