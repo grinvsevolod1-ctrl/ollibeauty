@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import Silk from "@/components/Silk"
+import Silk from "@/components/silk"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
