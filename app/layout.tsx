@@ -8,7 +8,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/components/language-provider"
 import { Suspense } from "react"
-import { Header } from "@/components/header"   
+import { Header } from "@/components/header"
 
 export const metadata: Metadata = {
   title: "Olli Beauty | Профессиональный макияж в Санкт-Петербурге",
@@ -24,30 +24,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" suppressHydrationWarning>
-      <body
-        className={`relative min-h-screen font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}
-      >
-        {/* Silk фон */}
-        <div className="absolute inset-0 -z-10 w-full h-full">
-          <Silk
-            speed={5}
-            scale={1}
-            noiseIntensity={1.5}
-            rotation={0}
-          />
-        </div>
+    <ThemeProvider defaultTheme="dark" attribute="class">
+      <html lang="ru" suppressHydrationWarning>
+        <body
+          className={`relative min-h-screen font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}
+        >
+          {/* Silk фон */}
+          <div className="absolute inset-0 -z-10 w-full h-full">
+            <Silk speed={5} scale={1} noiseIntensity={1.5} rotation={0} />
+          </div>
 
-        <ThemeProvider defaultTheme="dark">
           <LanguageProvider defaultLanguage="ru">
             <Header />
             <main className="pt-16 md:pt-20">
               <Suspense fallback={null}>{children}</Suspense>
             </main>
           </LanguageProvider>
-        </ThemeProvider>
-        <Analytics />
-      </body>
-    </html>
+          <Analytics />
+        </body>
+      </html>
+    </ThemeProvider>
   )
 }
