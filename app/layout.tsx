@@ -1,44 +1,15 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { LanguageProvider } from "@/components/language-provider"
-import { Suspense } from "react"
-import { Header } from "@/components/header"
 
 export const metadata: Metadata = {
-  title: "Olli Beauty | Профессиональный макияж в Санкт-Петербурге",
-  description:
-    "Профессиональный визажист в Санкт-Петербурге. Свадебный, вечерний макияж, макияж для фотосессий. Запись онлайн.",
-  keywords:
-    "визажист, макияж, Санкт-Петербург, свадебный макияж, вечерний макияж, Olli Beauty",
-  openGraph: {
-    title: "Olli Beauty | Профессиональный макияж",
-    description: "Профессиональный визажист в Санкт-Петербурге",
-    type: "website",
-  },
+  title: "Debug Layout",
+  description: "Минимальный layout для диагностики",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" suppressHydrationWarning>
-      <body
-        className={`relative min-h-screen font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}
-      >
-        <ThemeProvider defaultTheme="dark">
-          <LanguageProvider defaultLanguage="ru">
-            <Header />
-            <main className="pt-16 md:pt-20">
-              <Suspense fallback={null}>{children}</Suspense>
-            </main>
-          </LanguageProvider>
-
-          <Analytics />
-        </ThemeProvider>
-      </body>
+    <html lang="ru">
+      <body>{children}</body>
     </html>
   )
 }
