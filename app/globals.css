@@ -1,7 +1,14 @@
-@import "tailwindcss";
+k@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+/* Сброс фона для Silk */
+html, body {
+  height: 100%;
+  margin: 0;
+  background: transparent !important;
+}
 
 /* Custom Olli Beauty theme with pink/purple gradient accent and dark/light modes */
 :root {

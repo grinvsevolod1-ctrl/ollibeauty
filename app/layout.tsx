@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider defaultTheme="dark" attribute="class">
+    <ThemeProvider defaultTheme="dark">
       <html lang="ru" suppressHydrationWarning>
         <body
           className={`relative min-h-screen font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}
@@ -40,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Suspense fallback={null}>{children}</Suspense>
             </main>
           </LanguageProvider>
+
           <Analytics />
         </body>
       </html>
