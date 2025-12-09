@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   title: "Olli Beauty | Профессиональный макияж в Санкт-Петербурге",
   description:
     "Профессиональный визажист в Санкт-Петербурге. Свадебный, вечерний макияж, макияж для фотосессий. Запись онлайн.",
-  keywords: "визажист, макияж, Санкт-Петербург, свадебный макияж, вечерний макияж, Olli Beauty",
+  keywords:
+    "визажист, макияж, Санкт-Петербург, свадебный макияж, вечерний макияж, Olli Beauty",
   openGraph: {
     title: "Olli Beauty | Профессиональный макияж",
     description: "Профессиональный визажист в Санкт-Петербурге",
@@ -24,12 +25,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider defaultTheme="dark">
-      <html lang="ru" suppressHydrationWarning>
-        <body
-          className={relative min-h-screen font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased}
-        >
-          {/ Silk фон /}
+    <html lang="ru" suppressHydrationWarning>
+      <body
+        className={`relative min-h-screen font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}
+      >
+        <ThemeProvider defaultTheme="dark">
+          {/* Silk фон */}
           <div className="absolute inset-0 -z-10 w-full h-full">
             <Silk speed={5} scale={1} noiseIntensity={1.5} rotation={0} />
           </div>
@@ -42,8 +43,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </LanguageProvider>
 
           <Analytics />
-        </body>
-      </html>
-    </ThemeProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   )
 }
