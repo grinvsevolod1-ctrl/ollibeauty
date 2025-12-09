@@ -4,7 +4,6 @@ export async function sendToTelegram(data: {
   service?: string
   date?: string
   message?: string
-  formType: string
 }) {
   try {
     const response = await fetch("/api/telegram", {
@@ -19,6 +18,6 @@ export async function sendToTelegram(data: {
     return result
   } catch (error) {
     console.error("[v0] Error sending to Telegram:", error)
-    return { success: false, error: "Network error" }
+    return { false, error: "Network error" }
   }
 }

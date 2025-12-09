@@ -5,9 +5,6 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { LanguageProvider } from "@/components/language-provider"
-import { Suspense } from "react"
 import { Header } from "@/components/header"
 
 export const metadata: Metadata = {
@@ -31,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           {/* Silk фон */}
           <div className="absolute inset-0 -z-10 w-full h-full">
-            <Silk speed={5} scale={1} noiseIntensity={1.5} rotation={0} />
+            <Silk speed={5} rotation={0} />
           </div>
 
           <LanguageProvider defaultLanguage="ru">
@@ -43,7 +40,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <Analytics />
         </body>
-      </html>
     </ThemeProvider>
   )
 }
