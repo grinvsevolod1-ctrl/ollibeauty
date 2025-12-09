@@ -138,3 +138,22 @@ const Silk: React.FC<SilkProps> = ({
   noiseIntensity = 1.5,
   rotation = 0,
 }) => {
+  const uniforms: SilkUniforms = {
+    uSpeed: { value: speed },
+    uScale: { value: scale },
+    uNoiseIntensity: { value: noiseIntensity },
+    uColor: { value: new Color(color ?? "#f5e8bf") },
+    uRotation: { value: rotation },
+    uTime: { value: 0 },
+  };
+
+  const ref = useRef<Mesh>(null);
+
+  return (
+    <Canvas>
+      <SilkPlane ref={ref} uniforms={uniforms} />
+    </Canvas>
+  );
+};
+
+export default Silk;
