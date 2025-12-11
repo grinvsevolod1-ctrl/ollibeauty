@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/components/language-provider"
 import { Header } from "@/components/header"
 import { Analytics } from "@vercel/analytics/next"
-import Silk from "@/components/Silk"   // импортируем фон
+import Silk from "@/components/silk"   // импортируем фон
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -36,3 +36,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+
