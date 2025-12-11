@@ -113,27 +113,25 @@ export function Header() {
             </Button>
 
             <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+  variant="ghost"
+  size="icon"
+  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+  aria-label="Toggle theme"
+>
+  {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+</Button>
 
-            <Link href="#booking" className="hidden md:block">
-              <Button className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)]
 <Link href="#booking" className="hidden md:block">
-              <Button className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90">
-                {t.hero.cta}
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
+  <Button className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90">
+    {t.hero.cta}
+  </Button>
+</Link>
+</div>
+</div>
+</div>
 
-      {/* Mobile Dropdown */}
-      {isOpen && <MobileNavMenu />}
-    </header>
-  )
+{/* Mobile Dropdown */}
+{isOpen && <MobileNavMenu />}
+</header>
+)
 }
