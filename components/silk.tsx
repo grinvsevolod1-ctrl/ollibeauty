@@ -28,10 +28,7 @@ interface SilkUniforms {
 
 const vertexShader = `
 varying vec2 vUv;
-varying vec3 vPosition;
-
 void main() {
-  vPosition = position;
   vUv = uv;
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
@@ -39,7 +36,6 @@ void main() {
 
 const fragmentShader = `
 varying vec2 vUv;
-varying vec3 vPosition;
 
 uniform float uTime;
 uniform vec3  uColor;
@@ -48,26 +44,22 @@ uniform float uScale;
 uniform float uRotation;
 uniform float uNoiseIntensity;
 
-const float e = 2.71828182845904523536;
-
-float noise(vec2 texCoord) {
-  float G = e;
-  vec2  r = (G * sin(G * texCoord));
-  return fract(r.x * r.y * (1.0 + texCoord.x));
-}
-
 vec2 rotateUvs(vec2 uv, float angle) {
   float c = cos(angle);
   float s = sin(angle);
-  mat2  rot = mat2(c, -s, s, c);
+  mat2 rot = mat2(c, -s, s, c);
   return rot * uv;
 }
 
+float noise(vec2 texCoord, float t) {
+  return 0.5 + 0.5 * sin(texCoord.x * 10.0 + texCoord.y * 10.0 + t);
+}
+
 void main() {
-  float rnd        = noise(gl_FragCoord.xy);
-  vec2  uv         = rotateUvs(vUv * uScale, uRotation);
-  vec2  tex        = uv * uScale;
-  float tOffset    = uSpeed * uTime;
+  float rnd = noise(vUv, uTime);
+  vec2 uv = rotateUvs(vUv * uScale, uRotation);
+  vec2 tex = uv * uScale;
+  float tOffset = uSpeed * uTime;
 
   tex.y += 0.03 * sin(8.0 * tex.x - tOffset);
 
@@ -97,7 +89,8 @@ const SilkPlane = forwardRef<Mesh, { uniforms: SilkUniforms }>(function SilkPlan
     const mesh = ref as React.MutableRefObject<Mesh | null>
     if (mesh.current) {
       const material = mesh.current.material as ShaderMaterial & { uniforms: SilkUniforms }
-      material.uniforms.uTime.value += 0.1 * delta
+      // скорость теперь управляется через uSpeed
+      material.uniforms.uTime.value += delta * uniforms.uSpeed.value
     }
   })
 
@@ -158,7 +151,7 @@ export const Silk: React.FC<{
   const ref = useRef<Mesh>(null)
 
   return (
-    <Canvas>
+    <Canvas className="absolute inset-0">
       <SilkPlane ref={ref} uniforms={uniforms} />
     </Canvas>
   )
