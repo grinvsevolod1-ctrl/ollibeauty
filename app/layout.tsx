@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/components/language-provider"
 import { Header } from "@/components/header"
 import { Analytics } from "@vercel/analytics/next"
-import Silk from "@/components/silk"   // импортируем твой Silk
+import Silk from "@/components/silk"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body>
+      <body className="bg-transparent">
         <div className="fixed inset-0 -z-10">
           <Silk />
         </div>
