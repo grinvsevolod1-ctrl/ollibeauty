@@ -3,7 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/components/language-provider"
 import { Header } from "@/components/header"
 import { Analytics } from "@vercel/analytics/next"
-import silk from "@/components/silk"
+import Silk from "@/components/Silk"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -19,7 +19,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <LanguageProvider defaultLanguage="ru">
             {/* Живой фон Silk */}
             <div className="absolute inset-0 -z-10">
-              <Silk speed={5} scale={1} color="#7B7481" noiseIntensity={1.5} rotation={0} />
+              <Silk
+                speed={5}
+                scale={1}
+                color="#7B7481"
+                noiseIntensity={1.5}
+                rotation={0}
+              />
             </div>
 
             {/* Overlay для читаемости текста */}
