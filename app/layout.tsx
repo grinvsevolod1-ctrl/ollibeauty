@@ -14,26 +14,28 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body>
+      {/* добавляем min-h-screen и relative */}
+      <body className="min-h-screen relative">
+        {/* Silk фон на всю страницу */}
+        <div className="absolute inset-0 -z-10">
+          <Silk
+            speed={5}
+            scale={1}
+            color="#7B7481"
+            noiseIntensity={1.5}
+            rotation={0}
+          />
+        </div>
+
+        {/* Overlay для читаемости текста */}
+        <div className="absolute inset-0 bg-black/30 -z-5" />
+
         <ThemeProvider defaultTheme="dark">
           <LanguageProvider defaultLanguage="ru">
-            {/* Живой фон Silk */}
-            <div className="absolute inset-0 -z-10">
-              <Silk
-                speed={5}
-                scale={1}
-                color="#7B7481"
-                noiseIntensity={1.5}
-                rotation={0}
-              />
-            </div>
-
-            {/* Overlay для читаемости текста */}
-            <div className="absolute inset-0 bg-black/30 -z-5" />
-
-            {/* Шапка и контент */}
             <Header />
-            <main className="pt-16 md:pt-20 relative z-10">{children}</main>
+            <main className="pt-16 md:pt-20 relative z-10">
+              {children}
+            </main>
           </LanguageProvider>
           <Analytics />
         </ThemeProvider>
