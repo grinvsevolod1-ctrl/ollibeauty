@@ -14,6 +14,7 @@
   --primary: oklch(0.25 0.02 300);
   --primary-foreground: oklch(0.99 0.005 300);
   --secondary: oklch(0.95 0.01 300);
+  --silk-color: #f5e8bf;
   --secondary-foreground: oklch(0.25 0.02 300);
   --muted: oklch(0.96 0.005 300);
   --muted-foreground: oklch(0.5 0.01 300);
@@ -41,6 +42,7 @@
   --popover: oklch(0.12 0.01 300);
   --popover-foreground: oklch(0.95 0.005 300);
   --primary: oklch(0.95 0.005 300);
+  --silk-color: #333366;
   --primary-foreground: oklch(0.15 0.01 300);
   --secondary: oklch(0.2 0.01 300);
   --secondary-foreground: oklch(0.95 0.005 300);
