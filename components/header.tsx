@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image" // добавляем импорт
+import Image from "next/image"
 import { Moon, Sun, Globe, ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "@/components/theme-provider"
@@ -44,10 +44,10 @@ export function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo — картинка из public/Olya.jpg */}
+          {/* Logo — картинка из public/olya.png */}
           <Link href="/" aria-label="На главную">
             <Image
-              src="/Olya.jpg"
+              src="/olya.png"
               alt="Olli Beauty"
               width={120}
               height={40}
