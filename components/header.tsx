@@ -46,7 +46,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo — SVG из public/olya.svg */}
           <Link href="/" aria-label="На главную">
-            <Image
+            <img
               src="/olya.svg"
               alt="Olli Beauty"
               width={120}
