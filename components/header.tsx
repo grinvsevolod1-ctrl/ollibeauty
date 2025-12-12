@@ -44,10 +44,10 @@ export function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo — картинка из public/olya.png */}
+          {/* Logo — SVG из public/olya.svg */}
           <Link href="/" aria-label="На главную">
             <Image
-              src="/olya.png"
+              src="/olya.svg"
               alt="Olli Beauty"
               width={120}
               height={40}
