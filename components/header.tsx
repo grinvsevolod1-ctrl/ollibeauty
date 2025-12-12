@@ -44,18 +44,16 @@ export function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo — SVG из public/olya.svg */}
-          <Link href="/" aria-label="На главную">
-            <img
-              src="/olya.svg"
-              alt="Olli Beauty"
-              width={120}
-              height={40}
-              className="h-8 md:h-10 w-auto transition-transform duration-300"
-              priority
-            />
-          </Link>
-
+         {/* Logo — SVG из public/olya.svg */}
+<Link href="/" aria-label="На главную">
+  <img
+    src="/olya.svg"
+    alt="Olli Beauty"
+    width={120}
+    height={40}
+    className="h-8 md:h-10 w-auto transition-transform duration-300"
+  />
+</Link>
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => (
