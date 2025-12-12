@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { Moon, Sun, Globe, ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "@/components/theme-provider"
 import { useLanguage } from "@/components/language-provider"
 import { MobileNavMenu } from "@/components/mobile-nav-menu"
+import { Logo } from "@/components/logo"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -44,16 +44,11 @@ export function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-         {/* Logo — SVG из public/olya.svg */}
-<Link href="/" aria-label="На главную">
-  <img
-    src="/olya.svg"
-    alt="Olli Beauty"
-    width={120}
-    height={40}
-    className="h-8 md:h-10 w-auto transition-transform duration-300"
-  />
-</Link>
+          {/* Logo */}
+          <Link href="/" aria-label="На главную">
+            <Logo />
+          </Link>
+
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => (
