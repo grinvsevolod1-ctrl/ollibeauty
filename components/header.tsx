@@ -37,90 +37,86 @@ export function Header() {
 
   return (
     <header
-      className={`relative sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-300 ${
         isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
       }`}
     >
-<div className="container mx-auto px-4">
-  <div className="flex items-center justify-between h-16 md:h-20">
-    {/* Здесь раньше был Logo */}
-    <Link href="/" aria-label="На главную">
-      <span className="font-bold text-lg">Главная</span>
-    </Link>
-  </div>
-</div>
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div
-              className="relative"
-              onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
+      <div className="container mx-auto px-4 flex items-center justify-between h-16 md:h-20">
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
             >
-              <button className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
-                {t.nav.servicesMenu || "Услуги"}
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
-                />
-              </button>
-              {isServicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-background/95 backdrop-blur-lg border border-border rounded-lg shadow-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                  {servicesItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          </nav>
-
-          {/* Actions */}
-          <div className="flex items-center gap-2 md:gap-4">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-md hover:bg-gray-200 transition-colors"
-              aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setLanguage(language === "ru" ? "en" : "ru")}
-              aria-label="Toggle language"
-            >
-              <Globe className="h-5 w-5" />
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
-
-            <Link href="#booking" className="hidden md:block">
-              <Button className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90">
-                {t.hero.cta}
-              </Button>
+              {item.label}
             </Link>
+          ))}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsServicesOpen(true)}
+            onMouseLeave={() => setIsServicesOpen(false)}
+          >
+            <button className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
+              {t.nav.servicesMenu || "Услуги"}
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+            {isServicesOpen && (
+              <div className="absolute top-full left-0 mt-2 w-48 bg-background/95 backdrop-blur-lg border border-border rounded-lg shadow-lg overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                {servicesItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
+        </nav>
+
+        {/* Actions */}
+        <div className="flex items-center gap-2 md:gap-4">
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden p-2 rounded-md hover:bg-gray-200 transition-colors"
+            aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+
+          {/* Language */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setLanguage(language === "ru" ? "en" : "ru")}
+            aria-label="Toggle language"
+          >
+            <Globe className="h-5 w-5" />
+          </Button>
+
+          {/* Theme */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </Button>
+
+          {/* CTA */}
+          <Link href="#booking" className="hidden md:block">
+            <Button className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90">
+              {t.hero.cta}
+            </Button>
+          </Link>
         </div>
       </div>
 
