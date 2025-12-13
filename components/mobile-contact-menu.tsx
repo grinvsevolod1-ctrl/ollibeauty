@@ -28,67 +28,62 @@ export function MobileContactMenu() {
       </Button>
 
       {isOpen && (
-        <>
-          {/* Backdrop */}
-          <div className="fixed inset-0 bg-black/20 z-40" onClick={() => setIsOpen(false)} />
+        <div className="fixed right-2 top-16 w-[calc(100vw-2rem)] max-w-[280px] bg-card border border-border rounded-lg shadow-lg z-50 overflow-hidden animate-slide-in-from-top">
+          <div className="p-4 space-y-3">
+            {/* Phone number */}
+            <a
+              href={`tel:${phoneNumber}`}
+              className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-all hover:scale-[1.02] active:scale-[0.98]"
+              onClick={() => setIsOpen(false)}
+            >
+              <Phone className="h-5 w-5 text-[var(--gradient-start)] flex-shrink-0" />
+              <span className="text-sm font-medium break-all">{phoneNumber}</span>
+            </a>
 
-          <div className="fixed right-2 top-16 w-[calc(100vw-2rem)] max-w-[280px] bg-card border border-border rounded-lg shadow-lg z-50 overflow-hidden animate-slide-in-from-top">
-            <div className="p-4 space-y-3">
-              {/* Phone number */}
+            {/* Divider */}
+            <div className="border-t border-border" />
+
+            {/* Messengers */}
+            <div className="space-y-2">
+              <p className="text-xs text-muted-foreground px-3 font-medium">
+                {t.contacts.messengers || "Мессенджеры"}
+              </p>
+
               <a
-                href={`tel:${phoneNumber}`}
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-all hover:scale-[1.02] active:scale-[0.98]"
                 onClick={() => setIsOpen(false)}
               >
-                <Phone className="h-5 w-5 text-[var(--gradient-start)] flex-shrink-0" />
-                <span className="text-sm font-medium break-all">{phoneNumber}</span>
+                <FaWhatsapp className="h-5 w-5 text-green-500 flex-shrink-0" />
+                <span className="text-sm font-medium">WhatsApp</span>
               </a>
 
-              {/* Divider */}
-              <div className="border-t border-border" />
+              <a
+                href={telegramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-all hover:scale-[1.02] active:scale-[0.98]"
+                onClick={() => setIsOpen(false)}
+              >
+                <FaTelegramPlane className="h-5 w-5 text-blue-500 flex-shrink-0" />
+                <span className="text-sm font-medium">Telegram</span>
+              </a>
 
-              {/* Messengers */}
-              <div className="space-y-2">
-                <p className="text-xs text-muted-foreground px-3 font-medium">
-                  {t.contacts.messengers || "Мессенджеры"}
-                </p>
-
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-all hover:scale-[1.02] active:scale-[0.98]"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <FaWhatsapp className="h-5 w-5 text-green-500 flex-shrink-0" />
-                  <span className="text-sm font-medium">WhatsApp</span>
-                </a>
-
-                <a
-                  href={telegramLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-all hover:scale-[1.02] active:scale-[0.98]"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <FaTelegramPlane className="h-5 w-5 text-blue-500 flex-shrink-0" />
-                  <span className="text-sm font-medium">Telegram</span>
-                </a>
-
-                <a
-                  href={viberLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-all hover:scale-[1.02] active:scale-[0.98]"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <FaViber className="h-5 w-5 text-purple-500 flex-shrink-0" />
-                  <span className="text-sm font-medium">Viber</span>
-                </a>
-              </div>
+              <a
+                href={viberLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 p-3 rounded-lg hover:bg-accent transition-all hover:scale-[1.02] active:scale-[0.98]"
+                onClick={() => setIsOpen(false)}
+              >
+                <FaViber className="h-5 w-5 text-purple-500 flex-shrink-0" />
+                <span className="text-sm font-medium">Viber</span>
+              </a>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   )
