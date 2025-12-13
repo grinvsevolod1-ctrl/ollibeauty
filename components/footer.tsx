@@ -66,60 +66,54 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Services (слева) */}
           <div>
-            <h4 className="font-semibold mb-4 text-base">{t.nav.services}</h4>
-            <nav className="space-y-3">
-              <Link
-                href="/#about"
-                className="block text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors hover:translate-x-1 transform duration-200"
-              >
-                {t.nav.about}
-              </Link>
+            <h4 className="font-semibold mb-4 text-base">Услуги</h4>
+            <div className="flex gap-4 flex-wrap">
               <Link
                 href="/#services"
-                className="block text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors hover:translate-x-1 transform duration-200"
+                className="text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors"
               >
-                {t.nav.services}
+                Макияж
               </Link>
-              <Link
-                href="/#portfolio"
-                className="block text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors hover:translate-x-1 transform duration-200"
-              >
-                {t.nav.portfolio}
-              </Link>
-              <Link
-                href="/#testimonials"
-                className="block text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors hover:translate-x-1 transform duration-200"
-              >
-                {t.nav.testimonials}
-              </Link>
-            </nav>
-          </div>
-
-          {/* Training */}
-          <div>
-            <h4 className="font-semibold mb-4 text-base">Обучение</h4>
-            <nav className="space-y-3">
               <Link
                 href="/training"
-                className="block text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors hover:translate-x-1 transform duration-200"
+                className="text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors"
               >
-                {t.nav.training}
+                Обучение
               </Link>
               <Link
                 href="/workshops"
-                className="block text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors hover:translate-x-1 transform duration-200"
+                className="text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors"
               >
-                {t.nav.workshops}
+                Тренинги
+              </Link>
+            </div>
+          </div>
+
+          {/* Info (справа) */}
+          <div>
+            <h4 className="font-semibold mb-4 text-base">Информация</h4>
+            <div className="flex gap-4 flex-wrap">
+              <Link
+                href="/#about"
+                className="text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors"
+              >
+                Обо мне
               </Link>
               <Link
-                href="/#booking"
-                className="block text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors hover:translate-x-1 transform duration-200"
+                href="/#portfolio"
+                className="text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors"
               >
-                {t.nav.booking}
+                Портфолио
               </Link>
-            </nav>
+              <Link
+                href="/#testimonials"
+                className="text-sm text-muted-foreground hover:text-[var(--gradient-start)] transition-colors"
+              >
+                Отзывы
+              </Link>
+            </div>
           </div>
 
           {/* Contact info */}
