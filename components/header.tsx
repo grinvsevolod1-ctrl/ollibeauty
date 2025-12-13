@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import { useTheme } from "@/components/theme-provider"
 import { useLanguage } from "@/components/language-provider"
 import { MobileNavMenu } from "@/components/mobile-nav-menu"
-import { Logo } from "@/components/logo"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -42,13 +41,14 @@ export function Header() {
         isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link href="/" aria-label="На главную">
-            <Logo />
-          </Link>
-
+<div className="container mx-auto px-4">
+  <div className="flex items-center justify-between h-16 md:h-20">
+    {/* Здесь раньше был Logo */}
+    <Link href="/" aria-label="На главную">
+      <span className="font-bold text-lg">Главная</span>
+    </Link>
+  </div>
+</div>
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => (
