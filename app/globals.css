@@ -6,17 +6,17 @@
 /* Custom Olli Beauty theme with pink/purple gradient accent and dark/light modes */
 :root {
   --background: oklch(0.99 0.005 300);
-  --foreground: #ffffff;                  /* белый текст по умолчанию */
+  --foreground: #000000;                  /* общий текст — чёрный */
   --card: oklch(0.98 0.005 300);
-  --card-foreground: oklch(0.2 0.01 300); /* серый текст внутри карточек */
+  --card-foreground: #000000;             /* текст внутри карточек — чёрный */
   --popover: oklch(0.99 0.005 300);
-  --popover-foreground: oklch(0.2 0.01 300); /* серый текст в поповерах */
+  --popover-foreground: #000000;          /* текст в поповерах — чёрный */
   --primary: oklch(0.25 0.02 300);
   --primary-foreground: #ffffff;
   --secondary: oklch(0.95 0.01 300);
   --secondary-foreground: oklch(0.25 0.02 300);
   --muted: oklch(0.96 0.005 300);
-  --muted-foreground: #ffffff;            /* абзацы белые */
+  --muted-foreground: #000000;            /* абзацы чёрные */
   --ring: oklch(0.7 0.01 300);
   --radius: 1rem;
 
@@ -25,7 +25,7 @@
   --gradient-end: oklch(0.65 0.15 50);
   --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
