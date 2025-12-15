@@ -12,7 +12,8 @@ interface Service {
   duration?: string
   price?: string
   image?: string
-  href?: string   // 👈 добавлено
+  video?: string   // 👈 добавлено
+  href?: string
 }
 
 interface ScrollableCardsProps {
@@ -63,13 +64,24 @@ export function ScrollableCards({ items }: ScrollableCardsProps) {
               className="transform transition-transform duration-300 hover:scale-105 cursor-pointer overflow-hidden group hover:shadow-xl animate-fade-in-up"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              {service.image && (
+              {(service.video || service.image) && (
                 <div className="relative aspect-[3/2] overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title || "Service image"}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+                  {service.video ? (
+                    <video
+                      src={service.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  ) : (
+                    <img
+                      src={service.image!}
+                      alt={service.title || "Service image"}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               )}
