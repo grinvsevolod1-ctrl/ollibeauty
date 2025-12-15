@@ -42,7 +42,12 @@ export function Header() {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-16 md:h-20">
-        {/* Desktop Navigation */}
+        {/* Лого слева */}
+        <Link href="/" className="font-bold text-lg whitespace-nowrap">
+          Olli Beauty
+        </Link>
+
+        {/* Навигация по центру (только на десктопе) */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navItems.map((item) => (
             <Link
@@ -80,18 +85,18 @@ export function Header() {
           </div>
         </nav>
 
-        {/* Actions */}
+        {/* Действия справа */}
         <div className="flex items-center gap-2 md:gap-4">
-          {/* Mobile toggle */}
+          {/* Гамбургер (мобильное меню) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-md hover:bg-gray-200 transition-colors"
+            className="lg:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
             aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
 
-          {/* Language */}
+          {/* Смена языка */}
           <Button
             variant="ghost"
             size="icon"
@@ -101,7 +106,7 @@ export function Header() {
             <Globe className="h-5 w-5" />
           </Button>
 
-          {/* Theme */}
+          {/* Переключатель темы */}
           <Button
             variant="ghost"
             size="icon"
@@ -111,7 +116,7 @@ export function Header() {
             {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
 
-          {/* CTA */}
+          {/* CTA справа */}
           <Link href="#booking" className="hidden md:block">
             <Button className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90">
               {t.hero.cta}
