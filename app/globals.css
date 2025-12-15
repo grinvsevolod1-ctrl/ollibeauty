@@ -25,7 +25,7 @@
   --gradient-end: oklch(0.65 0.15 50);
   --sidebar: oklch(1 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary
+  --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
@@ -37,9 +37,9 @@
   --background: oklch(0.12 0.01 300);
   --foreground: #ffffff;                  /* белый текст в тёмной теме */
   --card: oklch(0.15 0.01 300);
-  --card-foreground: oklch(0.95 0.005 300); /* светло‑серый внутри карточек */
+  --card-foreground: #ffffff;             /* белый текст внутри карточек */
   --popover: oklch(0.12 0.01 300);
-  --popover-foreground: oklch(0.95 0.005 300); /* светло‑серый в поповерах */
+  --popover-foreground: #ffffff;          /* белый текст в поповерах */
   --primary: #ffffff;
   --primary-foreground: oklch(0.15 0.01 300);
   --secondary: oklch(0.2 0.01 300);
@@ -117,6 +117,7 @@
   }
 }
 
+/* Все твои анимации и утилиты остаются без изменений */
 /* Остальные анимации и утилиты остаются как у тебя */
 /* Custom animations for running text stripes */
 @keyframes marquee {
