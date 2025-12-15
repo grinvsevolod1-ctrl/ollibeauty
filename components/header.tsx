@@ -12,6 +12,8 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const [mounted, setMounted] = useState(false) // добавлено для фикса гидратации
+
   const { theme, setTheme } = useTheme()
   const { language, setLanguage, t } = useLanguage()
 
@@ -19,6 +21,10 @@ export function Header() {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    setMounted(true) // после монтирования можно безопасно рендерить иконки
   }, [])
 
   const navItems = [
@@ -113,7 +119,7 @@ export function Header() {
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            {mounted && (theme === "dark" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />)}
           </Button>
 
           {/* CTA справа */}
