@@ -6,17 +6,17 @@
 /* Custom Olli Beauty theme with pink/purple gradient accent and dark/light modes */
 :root {
   --background: oklch(0.99 0.005 300);
-  --foreground: oklch(0.2 0.01 300);
+  --foreground: #ffffff;                  /* белый текст по умолчанию */
   --card: oklch(0.98 0.005 300);
-  --card-foreground: oklch(0.2 0.01 300);
+  --card-foreground: oklch(0.2 0.01 300); /* серый текст внутри карточек */
   --popover: oklch(0.99 0.005 300);
-  --popover-foreground: oklch(0.2 0.01 300);
+  --popover-foreground: oklch(0.2 0.01 300); /* серый текст в поповерах */
   --primary: oklch(0.25 0.02 300);
-  --primary-foreground: oklch(0.99 0.005 300);
+  --primary-foreground: #ffffff;
   --secondary: oklch(0.95 0.01 300);
   --secondary-foreground: oklch(0.25 0.02 300);
   --muted: oklch(0.96 0.005 300);
-  --muted-foreground: oklch(0.5 0.01 300);
+  --muted-foreground: #ffffff;            /* абзацы белые */
   --ring: oklch(0.7 0.01 300);
   --radius: 1rem;
 
@@ -35,21 +35,21 @@
 
 .dark {
   --background: oklch(0.12 0.01 300);
-  --foreground: oklch(0.95 0.005 300);
+  --foreground: #ffffff;                  /* белый текст в тёмной теме */
   --card: oklch(0.15 0.01 300);
-  --card-foreground: oklch(0.95 0.005 300);
+  --card-foreground: oklch(0.95 0.005 300); /* светло‑серый внутри карточек */
   --popover: oklch(0.12 0.01 300);
-  --popover-foreground: oklch(0.95 0.005 300);
-  --primary: oklch(0.95 0.005 300);
+  --popover-foreground: oklch(0.95 0.005 300); /* светло‑серый в поповерах */
+  --primary: #ffffff;
   --primary-foreground: oklch(0.15 0.01 300);
   --secondary: oklch(0.2 0.01 300);
-  --secondary-foreground: oklch(0.95 0.005 300);
+  --secondary-foreground: #ffffff;
   --muted: oklch(0.2 0.01 300);
-  --muted-foreground: oklch(0.6 0.01 300);
+  --muted-foreground: #ffffff;            /* абзацы белые */
   --accent: oklch(0.2 0.01 300);
-  --accent-foreground: oklch(0.95 0.005 300);
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.45 0.2 27.325);
-  --destructive-foreground: oklch(0.95 0.005 300);
+  --destructive-foreground: #ffffff;
   --border: oklch(0.25 0.01 300);
   --input: oklch(0.25 0.01 300);
   --ring: oklch(0.4 0.01 300);
@@ -116,6 +116,8 @@
     max-width: 100vw;
   }
 }
+
+/* Остальные анимации и утилиты остаются как у тебя */
 /* Custom animations for running text stripes */
 @keyframes marquee {
   0% {
