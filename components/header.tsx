@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Moon, Sun, Globe, ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "@/components/theme-provider"
@@ -12,8 +13,6 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-  const [mounted, setMounted] = useState(false) // добавлено для фикса гидратации
-
   const { theme, setTheme } = useTheme()
   const { language, setLanguage, t } = useLanguage()
 
@@ -21,10 +20,6 @@ export function Header() {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  useEffect(() => {
-    setMounted(true) // после монтирования можно безопасно рендерить иконки
   }, [])
 
   const navItems = [
@@ -49,8 +44,15 @@ export function Header() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-16 md:h-20">
         {/* Лого слева */}
-        <Link href="/" className="font-bold text-lg whitespace-nowrap">
-          Olli Beauty
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/Olya.png"        // файл в папке public/logo.png
+            alt="Olli Beauty Logo"
+            width={120}
+            height={40}
+            priority
+            className="h-10 w-auto"
+          />
         </Link>
 
         {/* Навигация по центру (только на десктопе) */}
@@ -93,16 +95,16 @@ export function Header() {
 
         {/* Действия справа */}
         <div className="flex items-center gap-2 md:gap-4">
-          {/* Гамбургер (мобильное меню) */}
+          {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+            className="lg:hidden p-2 rounded-md hover:bg-gray-200 transition-colors"
             aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
 
-          {/* Смена языка */}
+          {/* Language */}
           <Button
             variant="ghost"
             size="icon"
@@ -112,17 +114,17 @@ export function Header() {
             <Globe className="h-5 w-5" />
           </Button>
 
-          {/* Переключатель темы */}
+          {/* Theme */}
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             aria-label="Toggle theme"
           >
-            {mounted && (theme === "dark" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />)}
+            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
 
-          {/* CTA справа */}
+          {/* CTA */}
           <Link href="#booking" className="hidden md:block">
             <Button className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90">
               {t.hero.cta}
