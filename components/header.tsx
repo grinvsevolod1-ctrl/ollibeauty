@@ -46,7 +46,7 @@ export function Header() {
         {/* Лого слева */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/Olya.png"        // файл в папке public/logo.png
+            src="/IMG_20251215_151317_724.png"        // файл в папке public/logo.png
             alt="Olli Beauty Logo"
             width={120}
             height={40}
