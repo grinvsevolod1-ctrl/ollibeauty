@@ -11,8 +11,8 @@ export function ServicesSection() {
 
   const services = [
     { ...t.services.wedding, video: "/Weed.mp4", href: "/services" },
-    { ...t.services.evening, video: "/'Day 1.mp4'", href: "/services" },
-    { ...t.services.photoshoot, video: "/'Day 2.mp4'", href: "/services" },
+    { ...t.services.evening, video: "/Makeup_1.mp4", href: "/services" },
+    { ...t.services.photoshoot, video: "/Makeup_2.mp4", href: "/services" },
   ]
 
   const courses = [
