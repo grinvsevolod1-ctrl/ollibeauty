@@ -8,19 +8,37 @@ import { Button } from "@/components/ui/button"
 import { useTheme } from "@/components/theme-provider"
 import { useLanguage } from "@/components/language-provider"
 import { MobileNavMenu } from "@/components/mobile-nav-menu"
+import throttle from "lodash.throttle"   // 👈 добавляем lodash.throttle
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const { theme, setTheme } = useTheme()
   const { language, setLanguage, t } = useLanguage()
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    const handleScroll = throttle(() => {
+      const currentScrollY = window.scrollY
+
+      // фон при скролле
+      setIsScrolled(currentScrollY > 20)
+
+      // направление скролла
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false) // вниз → скрыть
+      } else {
+        setIsVisible(true)  // вверх → показать
+      }
+
+      setLastScrollY(currentScrollY)
+    }, 150) // 👈 обновляем не чаще чем раз в 150мс
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   const navItems = [
     { href: "#home", label: t.nav.home },
@@ -38,15 +56,15 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-300 transform ${
         isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
-      }`}
+      } ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-16 md:h-20">
-        {/* Лого слева */}
+        {/* Лого */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/IMG_20251215_151317_724.png"        // файл в папке public/logo.png
+            src="/IMG_20251215_151317_724.png"
             alt="Olli Beauty Logo"
             width={120}
             height={40}
@@ -55,7 +73,7 @@ export function Header() {
           />
         </Link>
 
-        {/* Навигация по центру (только на десктопе) */}
+        {/* Навигация */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navItems.map((item) => (
             <Link
@@ -95,7 +113,6 @@ export function Header() {
 
         {/* Действия справа */}
         <div className="flex items-center gap-2 md:gap-4">
-          {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden p-2 rounded-md hover:bg-gray-200 transition-colors"
@@ -104,7 +121,6 @@ export function Header() {
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
 
-          {/* Language */}
           <Button
             variant="ghost"
             size="icon"
@@ -114,7 +130,6 @@ export function Header() {
             <Globe className="h-5 w-5" />
           </Button>
 
-          {/* Theme */}
           <Button
             variant="ghost"
             size="icon"
@@ -124,7 +139,6 @@ export function Header() {
             {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
 
-          {/* CTA */}
           <Link href="#booking" className="hidden md:block">
             <Button className="bg-gradient-to-r from-[var(--gradient-start)] to-[var(--gradient-end)] text-white hover:opacity-90">
               {t.hero.cta}
@@ -133,7 +147,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
       {isOpen && <MobileNavMenu />}
     </header>
   )
