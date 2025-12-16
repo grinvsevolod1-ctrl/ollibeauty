@@ -10,9 +10,9 @@ export function ServicesSection() {
   const { t } = useLanguage()
 
   const services = [
-    { ...t.services.wedding, video: "/Wedding.mp4", href: "/services" },
-    { ...t.services.evening, video: "/Evening.mp4", href: "/services" },
-    { ...t.services.photoshoot, video: "/Day.mp4", href: "/services" },
+    { ...t.services.wedding, video: "/Weed.mp4", href: "/services" },
+    { ...t.services.evening, video: "/'Day 1.mp4'", href: "/services" },
+    { ...t.services.photoshoot, video: "/'Day 2.mp4'", href: "/services" },
   ]
 
   const courses = [
