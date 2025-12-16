@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Moon, Sun, Globe, ChevronDown, Menu, X } from "lucide-react"
@@ -8,12 +8,12 @@ import { Button } from "@/components/ui/button"
 import { useTheme } from "@/components/theme-provider"
 import { useLanguage } from "@/components/language-provider"
 import { MobileNavMenu } from "@/components/mobile-nav-menu"
-import throttle from "lodash.throttle"   // 👈 добавляем lodash.throttle
+import throttle from "lodash.throttle"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const lastScrollY = useRef(0)   // 👈 хранение последней позиции скролла
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -23,22 +23,20 @@ export function Header() {
     const handleScroll = throttle(() => {
       const currentScrollY = window.scrollY
 
-      // фон при скролле
       setIsScrolled(currentScrollY > 20)
 
-      // направление скролла
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setIsVisible(false) // вниз → скрыть
       } else {
         setIsVisible(true)  // вверх → показать
       }
 
-      setLastScrollY(currentScrollY)
-    }, 150) // 👈 обновляем не чаще чем раз в 150мс
+      lastScrollY.current = currentScrollY
+    }, 150)
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [lastScrollY])
+  }, [])
 
   const navItems = [
     { href: "#home", label: t.nav.home },
@@ -56,7 +54,7 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 transform ${
+      className={`sticky top-0 z-50 transition-transform duration-300 ease-in-out ${
         isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
       } ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
     >
