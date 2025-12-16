@@ -55,53 +55,53 @@ export function ScrollableCards({ items }: ScrollableCardsProps) {
         onTouchEnd={handleTouchEnd}
       >
         {items.map((service, index) => (
-        <Link
-  key={`${service.id || service.title}-${index}`}
-  href={service.href || "#booking"}
-  className="flex-shrink-0 w-[300px] md:w-[400px] h-[360px]"
->
-  <Card
-    className="transform transition-transform duration-300 hover:scale-105 cursor-pointer overflow-hidden group hover:shadow-xl animate-fade-in-up"
-    style={{ animationDelay: `${index * 0.15}s` }}
-  >
-    {(service.video || service.image) && (
-      <div className="relative aspect-[16/9] overflow-hidden">
-        {service.video ? (
-          <video
-            src={service.video}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          />
-        ) : (
-          <img
-            src={service.image!}
-            alt={service.title || "Service image"}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      </div>
-    )}
-    <div className="p-6 space-y-4 text-base md:text-lg">
-      <h3 className="font-bold">{service.title}</h3>
-      <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-      {(service.duration || service.price) && (
-        <div className="flex items-center justify-between pt-4 border-t border-border">
-          {service.duration && (
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Clock className="h-4 w-4" />
-              <span>{service.duration}</span>
-            </div>
-          )}
-          {service.price && <div className="font-bold gradient-text">{service.price}</div>}
-        </div>
-      )}
-    </div>
-  </Card>
-</Link>
+          <Link
+            key={`${service.id || service.title}-${index}`}
+            href={service.href || "#booking"}
+            className="flex-shrink-0 w-[300px] md:w-[400px]"
+          >
+            <Card
+              className="transform transition-transform duration-300 hover:scale-105 cursor-pointer overflow-hidden group hover:shadow-xl animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
+              {(service.video || service.image) && (
+                <div className="relative overflow-hidden">
+                  {service.video ? (
+                    <video
+                      src={service.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <img
+                      src={service.image!}
+                      alt={service.title || "Service image"}
+                      className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              )}
+              <div className="p-6 space-y-4 text-base md:text-lg">
+                <h3 className="font-bold">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                {(service.duration || service.price) && (
+                  <div className="flex items-center justify-between pt-4 border-t border-border">
+                    {service.duration && (
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Clock className="h-4 w-4" />
+                        <span>{service.duration}</span>
+                      </div>
+                    )}
+                    {service.price && <div className="font-bold gradient-text">{service.price}</div>}
+                  </div>
+                )}
+              </div>
+            </Card>
+          </Link>
         ))}
       </div>
       <button
