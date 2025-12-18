@@ -1,4 +1,4 @@
-"use client"
+/*"use client"
 
 import { Sparkles, Heart } from "lucide-react"
 
@@ -28,3 +28,4 @@ export function MarqueeText({ items }: MarqueeTextProps) {
     </div>
   )
 }
+*/
