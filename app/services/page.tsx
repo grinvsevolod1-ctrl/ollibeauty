@@ -88,6 +88,7 @@ export default function ServicesPage() {
       <Footer />
 
       <BookingModal
+        isOpen={isModalOpen}                // 👈 добавлено
         onClose={() => setIsModalOpen(false)}
         formType={`Услуга: ${selectedService}`}
         title={selectedService}
