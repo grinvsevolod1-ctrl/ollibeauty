@@ -9,15 +9,6 @@ import { Footer } from "@/components/footer"
 export default function Page() {
   return (
     <main className="min-h-screen">
-      <MarqueeText
-        items={[
-          "Профессиональный макияж",
-          "Свадебный макияж",
-          "Вечерний макияж",
-          "Макияж для фотосессий",
-          "Обучение макияжу",
-        ]}
-      />
       <AboutSection />
       <ServicesSection />
       <PortfolioSection />
