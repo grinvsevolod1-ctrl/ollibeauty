@@ -1,4 +1,3 @@
-import { MarqueeText } from "@/components/marquee-text"
 import { AboutSection } from "@/components/about-section"
 import { ServicesSection } from "@/components/services-section"
 import { PortfolioSection } from "@/components/portfolio-section"
@@ -21,7 +20,6 @@ export default function Page() {
       />
       <AboutSection />
       <ServicesSection />
-      <MarqueeText items={["Olli Beauty", "Санкт-Петербург", "Запись онлайн", "Instagram @olli_beauty_"]} />
       <PortfolioSection />
       <TestimonialsSection />
       <BookingSection />
