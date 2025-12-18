@@ -1,4 +1,3 @@
-import { HeroVideo } from "@/components/hero-video"
 import { MarqueeText } from "@/components/marquee-text"
 import { AboutSection } from "@/components/about-section"
 import { ServicesSection } from "@/components/services-section"
@@ -11,7 +10,6 @@ import { Footer } from "@/components/footer"
 export default function Page() {
   return (
     <main className="min-h-screen">
-      <HeroVideo />
       <MarqueeText
         items={[
           "Профессиональный макияж",

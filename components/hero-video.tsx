@@ -1,4 +1,4 @@
-"use client"
+/*"use client"
 
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight, Sparkles } from "lucide-react"
@@ -98,3 +98,4 @@ export function HeroVideo() {
     </section>
   )
 }
+*/
